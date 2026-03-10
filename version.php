@@ -26,7 +26,7 @@
 defined('MOODLE_INTERNAL') || die();
 
 $plugin->component = 'mod_kolbtest';
-$plugin->version   = 2025030904;
+$plugin->version   = 2025030906;
 $plugin->requires  = 2024052200; // Moodle 4.5.
-$plugin->maturity  = MATURITY_BETA;
-$plugin->release   = '1.4';
+$plugin->maturity  = MATURITY_RC;
+$plugin->release   = '1.6';

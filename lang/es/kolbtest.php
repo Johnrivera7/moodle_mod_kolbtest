@@ -55,6 +55,7 @@ $string['student'] = 'Estudiante';
 $string['apply_filters'] = 'Aplicar filtros';
 $string['all_students'] = 'Todos los estudiantes';
 $string['activity'] = 'Actividad';
+$string['export_csv'] = 'Exportar CSV / Excel';
 $string['settings'] = 'Configuración del Test de Kolb';
 $string['show_author_credit'] = 'Mostrar crédito del autor';
 $string['show_author_credit_desc'] = 'Si está activado, se muestra «Desarrollado por John Rivera González» con enlaces a correo y GitHub al final de las páginas del plugin.';

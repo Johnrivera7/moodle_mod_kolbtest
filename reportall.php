@@ -116,6 +116,33 @@ foreach ($allowedkolbtestids as $kid) {
 }
 asort($allowedcourses);
 
+$export = optional_param('export', '', PARAM_ALPHA);
+if ($export === 'csv' && !empty($attempts)) {
+    $csvheaders = [
+        get_string('course', 'mod_kolbtest'),
+        get_string('activity', 'mod_kolbtest'),
+        get_string('student', 'mod_kolbtest'),
+        get_string('style', 'mod_kolbtest'),
+        'CE', 'RO', 'AC', 'AE',
+        get_string('date', 'mod_kolbtest'),
+    ];
+    $csvrows = [];
+    foreach ($attempts as $a) {
+        $csvrows[] = [
+            $courses[$a->courseid] ?? $a->courseid,
+            $a->activityname ?? '',
+            $users[$a->userid] ?? $a->userid,
+            $styles[$a->style] ?? $a->style,
+            $a->ce_score,
+            $a->ro_score,
+            $a->ac_score,
+            $a->ae_score,
+            userdate($a->timecreated, get_string('strftimedatetime', 'langconfig')),
+        ];
+    }
+    kolbtest_send_csv('kolbtest_report_all.csv', $csvheaders, $csvrows);
+}
+
 echo $OUTPUT->header();
 
 echo html_writer::tag('h2', get_string('report_full', 'mod_kolbtest'));
@@ -133,6 +160,11 @@ echo ' ';
 echo html_writer::empty_tag('input', ['type' => 'submit', 'value' => get_string('apply_filters', 'mod_kolbtest'), 'class' => 'btn btn-secondary']);
 echo html_writer::end_tag('form');
 echo html_writer::end_tag('div');
+
+if (!empty($attempts)) {
+    $exporturl = new moodle_url('/mod/kolbtest/reportall.php', ['filter_course' => $filtercourse, 'filter_style' => $filterstyle, 'filter_user' => $filteruser, 'export' => 'csv']);
+    echo html_writer::link($exporturl, get_string('export_csv', 'mod_kolbtest'), ['class' => 'btn btn-secondary']);
+}
 
 if (empty($attempts)) {
     echo html_writer::div(get_string('no_attempts', 'mod_kolbtest'), 'alert alert-info');

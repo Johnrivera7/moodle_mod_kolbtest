@@ -103,6 +103,32 @@ $reportallurl = new moodle_url('/mod/kolbtest/reportall.php');
 $backurl = new moodle_url('/mod/kolbtest/view.php', ['id' => $id]);
 $canaccessfull = function_exists('kolbtest_can_access_report_full') && kolbtest_can_access_report_full();
 
+$export = optional_param('export', '', PARAM_ALPHA);
+if ($export === 'csv' && !empty($attempts)) {
+    $csvheaders = [get_string('student', 'mod_kolbtest'), get_string('style', 'mod_kolbtest'), 'CE', 'RO', 'AC', 'AE', get_string('date', 'mod_kolbtest')];
+    if ($scope === 'course') {
+        array_unshift($csvheaders, get_string('activity', 'mod_kolbtest'));
+    }
+    $csvrows = [];
+    foreach ($attempts as $a) {
+        $row = [
+            $users[$a->userid] ?? $a->userid,
+            $styles[$a->style] ?? $a->style,
+            $a->ce_score,
+            $a->ro_score,
+            $a->ac_score,
+            $a->ae_score,
+            userdate($a->timecreated, get_string('strftimedatetime', 'langconfig')),
+        ];
+        if ($scope === 'course') {
+            array_unshift($row, $a->activityname ?? '');
+        }
+        $csvrows[] = $row;
+    }
+    $filename = 'kolbtest_report_' . ($scope === 'course' ? 'course_' . $course->id : 'activity_' . $cm->instance) . '.csv';
+    kolbtest_send_csv($filename, $csvheaders, $csvrows);
+}
+
 echo $OUTPUT->header();
 
 echo html_writer::tag('h2', get_string('report', 'mod_kolbtest') . ': ' . ($scope === 'course' ? get_string('report_course', 'mod_kolbtest') : $kolbtest->name));
@@ -136,6 +162,10 @@ if ($scope === 'activity') {
 }
 if ($canaccessfull) {
     echo ' ' . html_writer::link($reportallurl, get_string('report_full', 'mod_kolbtest'), ['class' => 'btn btn-primary']);
+}
+if (!empty($attempts)) {
+    $exporturl = new moodle_url('/mod/kolbtest/report.php', ['id' => $id, 'scope' => $scope, 'filter_style' => $filterstyle, 'filter_user' => $filteruser, 'export' => 'csv']);
+    echo ' ' . html_writer::link($exporturl, get_string('export_csv', 'mod_kolbtest'), ['class' => 'btn btn-secondary']);
 }
 
 if (empty($attempts)) {
