@@ -25,6 +25,9 @@ $filterstyle = optional_param('filter_style', '', PARAM_ALPHANUMEXT);
 $filteruser = optional_param('filter_user', 0, PARAM_INT);
 
 require_login();
+if (!kolbtest_can_access_report_full()) {
+    require_capability('moodle/site:config', context_system::instance());
+}
 
 // Obtener todos los kolbtest en los que el usuario tiene permiso de ver reportes.
 $allkolbtests = $DB->get_records('kolbtest', [], 'course, name', 'id, course, name');
@@ -160,5 +163,6 @@ if (empty($attempts)) {
     echo html_writer::table($table);
 }
 
+echo html_writer::div(get_string('acknowledgments_text', 'mod_kolbtest'), 'mod_kolbtest-report-ack');
 echo kolbtest_author_credit();
 echo $OUTPUT->footer();

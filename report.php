@@ -101,6 +101,7 @@ $reporturl = new moodle_url('/mod/kolbtest/report.php', ['id' => $id]);
 $coursereporturl = new moodle_url('/mod/kolbtest/report.php', ['id' => $id, 'scope' => 'course']);
 $reportallurl = new moodle_url('/mod/kolbtest/reportall.php');
 $backurl = new moodle_url('/mod/kolbtest/view.php', ['id' => $id]);
+$canaccessfull = function_exists('kolbtest_can_access_report_full') && kolbtest_can_access_report_full();
 
 echo $OUTPUT->header();
 
@@ -133,8 +134,9 @@ if ($scope === 'activity') {
 } else {
     echo html_writer::link($reporturl, get_string('report_student', 'mod_kolbtest') . ' (esta actividad)', ['class' => 'btn btn-link']);
 }
-echo ' ';
-echo html_writer::link($reportallurl, get_string('report_full', 'mod_kolbtest'), ['class' => 'btn btn-primary']);
+if ($canaccessfull) {
+    echo ' ' . html_writer::link($reportallurl, get_string('report_full', 'mod_kolbtest'), ['class' => 'btn btn-primary']);
+}
 
 if (empty($attempts)) {
     echo html_writer::div(get_string('no_attempts', 'mod_kolbtest'), 'alert alert-info');
@@ -164,5 +166,6 @@ if (empty($attempts)) {
 }
 
 echo html_writer::link($backurl, get_string('back'), ['class' => 'btn btn-secondary']);
+echo html_writer::div(get_string('acknowledgments_text', 'mod_kolbtest'), 'mod_kolbtest-report-ack');
 echo kolbtest_author_credit();
 echo $OUTPUT->footer();

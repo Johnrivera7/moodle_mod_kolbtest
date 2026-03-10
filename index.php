@@ -48,10 +48,8 @@ foreach ($instances as $cm) {
 
 if ($firstcmid && has_capability('mod/kolbtest:viewreports', context_module::instance($firstcmid))) {
     $coursereporturl = new moodle_url('/mod/kolbtest/report.php', ['id' => $firstcmid, 'scope' => 'course']);
-    $reportallurl = new moodle_url('/mod/kolbtest/reportall.php');
     echo html_writer::div(
-        html_writer::link($coursereporturl, get_string('report_all_course', 'mod_kolbtest'), ['class' => 'btn btn-secondary']) . ' ' .
-        html_writer::link($reportallurl, get_string('report_full', 'mod_kolbtest'), ['class' => 'btn btn-primary']),
+        html_writer::link($coursereporturl, get_string('report_all_course', 'mod_kolbtest'), ['class' => 'btn btn-primary']),
         'mod_kolbtest-index-report'
     );
     echo html_writer::empty_tag('br');

@@ -217,6 +217,16 @@
     border-top: 1px solid #e5e7eb;
 }
 
+.mod_kolbtest-report-ack {
+    margin-top: 1.5rem;
+    padding: 1rem 1.25rem;
+    background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
+    border: 1px solid #fcd34d;
+    border-radius: 12px;
+    color: #92400e;
+    font-size: 0.95rem;
+}
+
 /* Crédito del autor */
 .mod_kolbtest-author-credit {
     margin-top: 2rem;
@@ -242,11 +252,15 @@
 .mod_kolbtest-author-link {
     display: inline-flex;
     align-items: center;
+    justify-content: center;
     color: #6b7280;
     text-decoration: none;
-    padding: 0.2rem;
+    padding: 0.25rem;
     border-radius: 4px;
     transition: color 0.15s;
+    min-width: 28px;
+    min-height: 28px;
+    overflow: visible;
 }
 
 .mod_kolbtest-author-link:hover {
@@ -255,4 +269,8 @@
 
 .mod_kolbtest-author-icon {
     display: block;
+    width: 20px;
+    height: 20px;
+    flex-shrink: 0;
+    overflow: visible;
 }

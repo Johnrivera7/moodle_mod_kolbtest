@@ -91,20 +91,43 @@ function kolbtest_get_coursemodule_info($cm) {
 }
 
 /**
- * Callback de soporte de características del módulo.
+ * Comprueba si un usuario puede acceder al reporte completo (todos los cursos).
+ * Pueden: quien tiene moodle/site:config o quien tiene asignado uno de los roles configurados.
  *
- * @param string $feature FEATURE_xx constante
- * @return bool|null
+ * @param int|null $userid ID del usuario (null = usuario actual)
+ * @return bool
  */
+function kolbtest_can_access_report_full($userid = null) {
+    global $USER, $DB;
+    if ($userid === null) {
+        $userid = $USER->id;
+    }
+    if (has_capability('moodle/site:config', context_system::instance(), $userid)) {
+        return true;
+    }
+    $allowed = get_config('mod_kolbtest', 'roles_report_full');
+    if ($allowed === false || $allowed === '') {
+        return false;
+    }
+    $roleids = array_map('intval', explode(',', $allowed));
+    $roleids = array_filter($roleids);
+    if (empty($roleids)) {
+        return false;
+    }
+    list($insql, $params) = $DB->get_in_or_equal($roleids, SQL_PARAMS_NAMED);
+    $params['userid'] = $userid;
+    return $DB->record_exists_sql(
+        "SELECT 1 FROM {role_assignments} WHERE userid = :userid AND roleid $insql",
+        $params
+    );
+}
+
 /**
  * Devuelve el bloque HTML de crédito del autor con enlaces (correo y GitHub).
  *
  * @return string HTML
  */
 function kolbtest_author_credit() {
-    if ((string) get_config('mod_kolbtest', 'showauthorcredit') === '0') {
-        return '';
-    }
     $author = 'John Rivera González';
     $email = 'johnriveragonzalez7@gmail.com';
     $github = 'https://github.com/Johnrivera7';

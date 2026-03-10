@@ -18,6 +18,7 @@ Actividad de **Test de Estilos de Aprendizaje de Kolb** con interfaz de arrastra
 1. Copia la carpeta `mod_kolbtest` dentro de la carpeta `mod/` de tu instalación Moodle.
 2. Visita **Administración del sitio → Notificaciones** y acepta la instalación del plugin.
 3. En un curso, añade una actividad **"Test de Kolb"** desde el selector de actividades.
+4. En **Administración → Módulos de actividad → Test de Kolb** puede seleccionar qué roles (p. ej. Dirección académica) podrán abrir el **Reporte completo (todos los cursos)**. Esos usuarios verán el botón al entrar al reporte desde cualquier curso (Test de Kolb → Ver reporte).
 
 ## Características
 
