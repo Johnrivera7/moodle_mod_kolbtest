@@ -1,0 +1,258 @@
+/* Test de Kolb - Estilos modernos y didácticos */
+.mod_kolbtest-test-wrapper,
+.mod_kolbtest-result-wrapper {
+    max-width: 720px;
+    margin: 0 auto 2rem;
+    font-family: var(--font-family-sans-serif, "Segoe UI", system-ui, sans-serif);
+}
+
+.mod_kolbtest-intro {
+    margin-bottom: 1.5rem;
+    padding: 1rem 1.25rem;
+    background: linear-gradient(135deg, #f0f4ff 0%, #e8eeff 100%);
+    border-radius: 12px;
+    border-left: 4px solid #3b82f6;
+}
+
+.mod_kolbtest-instructions {
+    font-size: 1.05rem;
+    color: #374151;
+    margin-bottom: 2rem;
+    padding: 0.75rem 1rem;
+    background: #fefce8;
+    border-radius: 8px;
+    border-left: 4px solid #eab308;
+}
+
+.mod_kolbtest-question {
+    margin-bottom: 2.5rem;
+    padding: 1.5rem;
+    background: #fff;
+    border-radius: 16px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+    border: 1px solid #e5e7eb;
+}
+
+.mod_kolbtest-question-title {
+    font-size: 1.15rem;
+    color: #1f2937;
+    margin-bottom: 0.5rem;
+}
+
+.mod_kolbtest-question-hint {
+    font-size: 0.9rem;
+    color: #6b7280;
+    margin-bottom: 1rem;
+}
+
+.mod_kolbtest-sortable {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.mod_kolbtest-option {
+    display: flex;
+    align-items: center;
+    padding: 0.85rem 1rem;
+    margin-bottom: 0.5rem;
+    background: #f8fafc;
+    border: 2px solid #e2e8f0;
+    border-radius: 10px;
+    cursor: grab;
+    transition: background 0.15s, box-shadow 0.15s, transform 0.15s;
+}
+
+.mod_kolbtest-option:hover {
+    background: #f1f5f9;
+    border-color: #cbd5e1;
+}
+
+.mod_kolbtest-option:active {
+    cursor: grabbing;
+}
+
+.mod_kolbtest-option.mod_kolbtest-dragging {
+    opacity: 0.85;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+    transform: scale(1.02);
+    z-index: 10;
+}
+
+.mod_kolbtest-option-handle {
+    margin-right: 0.75rem;
+    color: #94a3b8;
+    font-size: 1rem;
+    user-select: none;
+}
+
+.mod_kolbtest-option-text {
+    flex: 1;
+    color: #334155;
+}
+
+.mod_kolbtest-actions {
+    margin-top: 2rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid #e5e7eb;
+}
+
+.mod_kolbtest-actions .btn-primary {
+    padding: 0.75rem 2rem;
+    font-size: 1.05rem;
+    border-radius: 10px;
+    background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
+    border: none;
+    box-shadow: 0 4px 12px rgba(59, 130, 246, 0.35);
+}
+
+.mod_kolbtest-actions .btn-primary:hover {
+    background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%);
+    box-shadow: 0 6px 16px rgba(59, 130, 246, 0.4);
+}
+
+/* Resultado */
+.mod_kolbtest-already-completed {
+    color: #059669;
+    font-weight: 500;
+    margin-bottom: 1rem;
+}
+
+.mod_kolbtest-result-heading {
+    font-size: 1.5rem;
+    color: #1f2937;
+    margin-bottom: 1.5rem;
+}
+
+.mod_kolbtest-scores-box {
+    margin-bottom: 1.5rem;
+    padding: 1.25rem;
+    background: #f8fafc;
+    border-radius: 12px;
+    border: 1px solid #e2e8f0;
+}
+
+.mod_kolbtest-scores-box h3 {
+    font-size: 1.1rem;
+    margin-bottom: 0.75rem;
+    color: #374151;
+}
+
+.mod_kolbtest-scores-table {
+    margin-bottom: 0;
+}
+
+.mod_kolbtest-style-badge {
+    margin-bottom: 1.5rem;
+    padding: 1rem 1.25rem;
+    background: linear-gradient(135deg, #dbeafe 0%, #bfdbfe 100%);
+    border-radius: 12px;
+    font-size: 1.1rem;
+}
+
+.mod_kolbtest-style-name {
+    font-weight: 700;
+    margin-left: 0.5rem;
+}
+
+.mod_kolbtest-style-name.style-acomodador { color: #0369a1; }
+.mod_kolbtest-style-name.style-divergente { color: #0d9488; }
+.mod_kolbtest-style-name.style-asimilador { color: #7c3aed; }
+.mod_kolbtest-style-name.style-convergente { color: #c2410c; }
+
+.mod_kolbtest-feedback-box {
+    padding: 1.5rem;
+    background: #fff;
+    border-radius: 12px;
+    border: 1px solid #e5e7eb;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+}
+
+.mod_kolbtest-feedback-box h3 {
+    font-size: 1.2rem;
+    color: #1f2937;
+    margin-bottom: 0.5rem;
+}
+
+.mod_kolbtest-feedback-box h4 {
+    font-size: 1.15rem;
+    color: #374151;
+    margin-top: 1rem;
+}
+
+.mod_kolbtest-feedback-subtitle {
+    font-size: 0.95rem;
+    color: #6b7280;
+    margin-bottom: 1rem;
+}
+
+.mod_kolbtest-feedback-body {
+    white-space: pre-line;
+    line-height: 1.6;
+    color: #4b5563;
+    margin-bottom: 1rem;
+}
+
+.mod_kolbtest-feedback-tips {
+    padding-left: 1.5rem;
+    margin-bottom: 1rem;
+    color: #4b5563;
+}
+
+.mod_kolbtest-feedback-tips li {
+    margin-bottom: 0.5rem;
+}
+
+.mod_kolbtest-feedback-difficulty {
+    padding: 0.75rem;
+    background: #fef3c7;
+    border-radius: 8px;
+    font-size: 0.95rem;
+    color: #92400e;
+}
+
+.mod_kolbtest-report-link {
+    margin-top: 1.5rem;
+    padding-top: 1rem;
+    border-top: 1px solid #e5e7eb;
+}
+
+/* Crédito del autor */
+.mod_kolbtest-author-credit {
+    margin-top: 2rem;
+    padding: 1rem 0;
+    border-top: 1px solid #e5e7eb;
+    font-size: 0.9rem;
+    color: #6b7280;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 0.35rem;
+}
+
+.mod_kolbtest-author-label {
+    margin-right: 0.25rem;
+}
+
+.mod_kolbtest-author-name {
+    font-weight: 600;
+    color: #374151;
+}
+
+.mod_kolbtest-author-link {
+    display: inline-flex;
+    align-items: center;
+    color: #6b7280;
+    text-decoration: none;
+    padding: 0.2rem;
+    border-radius: 4px;
+    transition: color 0.15s;
+}
+
+.mod_kolbtest-author-link:hover {
+    color: #2563eb;
+}
+
+.mod_kolbtest-author-icon {
+    display: block;
+}

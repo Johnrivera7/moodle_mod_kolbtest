@@ -1,0 +1,30 @@
+<div class="mod_kolbtest-test-wrapper" id="kolbtest-app">
+    {{#intro}}
+    <div class="mod_kolbtest-intro">{{{intro}}}</div>
+    {{/intro}}
+    <p class="mod_kolbtest-instructions">{{instructions}}</p>
+
+    <form id="kolbtest-form" method="post" action="">
+        <input type="hidden" name="sesskey" value="{{sesskey}}" />
+        <input type="hidden" name="order" id="kolbtest-order" value="" />
+
+        {{#questions}}
+        <div class="mod_kolbtest-question" data-question="{{num}}">
+            <h3 class="mod_kolbtest-question-title">{{num}}. {{question}}</h3>
+            <p class="mod_kolbtest-question-hint">Ordena de la que más te describe (arriba) a la que menos (abajo).</p>
+            <ul class="mod_kolbtest-sortable" data-question="{{num}}" role="list">
+                {{#options}}
+                <li class="mod_kolbtest-option" data-index="{{index}}" data-dim="{{dim}}" draggable="true" role="listitem">
+                    <span class="mod_kolbtest-option-handle" aria-hidden="true">⋮⋮</span>
+                    <span class="mod_kolbtest-option-text">{{text}}</span>
+                </li>
+                {{/options}}
+            </ul>
+        </div>
+        {{/questions}}
+
+        <div class="mod_kolbtest-actions">
+            <button type="submit" class="btn btn-primary btn-lg" id="kolbtest-submit">{{submitlabel}}</button>
+        </div>
+    </form>
+</div>

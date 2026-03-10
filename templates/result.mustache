@@ -1,0 +1,45 @@
+<div class="mod_kolbtest-result-wrapper">
+    <p class="mod_kolbtest-already-completed">{{already_completed}}</p>
+    <h2 class="mod_kolbtest-result-heading">{{your_result}}</h2>
+
+    <div class="mod_kolbtest-scores-box">
+        <h3>{{scores_label}}</h3>
+        <table class="mod_kolbtest-scores-table table table-bordered">
+            <thead>
+                <tr>
+                    <th>Dimensión</th>
+                    <th>Puntos</th>
+                </tr>
+            </thead>
+            <tbody>
+                {{#scores}}
+                <tr>
+                    <td>{{label}}</td>
+                    <td><strong>{{score}}</strong></td>
+                </tr>
+                {{/scores}}
+            </tbody>
+        </table>
+    </div>
+
+    <div class="mod_kolbtest-style-badge">
+        <span class="mod_kolbtest-style-label">{{style_label}}:</span>
+        <span class="mod_kolbtest-style-name style-{{style}}">{{style_name}}</span>
+    </div>
+
+    <div class="mod_kolbtest-feedback-box">
+        <h3>{{feedback_heading}}</h3>
+        <h4>{{feedback_title}}</h4>
+        <p class="mod_kolbtest-feedback-subtitle">{{feedback_subtitle}}</p>
+        <div class="mod_kolbtest-feedback-body">{{feedback_body}}</div>
+        <h5>Recomendaciones para ti</h5>
+        <ul class="mod_kolbtest-feedback-tips">
+            {{#feedback_tips}}
+            <li>{{.}}</li>
+            {{/feedback_tips}}
+        </ul>
+        <div class="mod_kolbtest-feedback-difficulty">
+            <strong>Cuando puede costarte más:</strong> {{feedback_difficulty}}
+        </div>
+    </div>
+</div>
