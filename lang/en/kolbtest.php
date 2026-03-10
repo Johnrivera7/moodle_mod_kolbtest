@@ -66,4 +66,4 @@ $string['report_full_about'] = 'About the full report';
 $string['report_full_about_desc'] = 'The <strong>Full report</strong> shows all Kolb Test attempts across all courses (according to your permissions). Those with access can open it from: (1) the link on this page (above), if they see the admin menu, or (2) from any course: open a Test de Kolb activity → «View report» tab → «Full report (all courses)» button. Only the roles selected below can open the report.';
 $string['author_credits'] = 'Author';
 $string['acknowledgments'] = 'Acknowledgments';
-$string['acknowledgments_text'] = 'Special thanks to <strong>Gabriel Olave Henríquez</strong> for the request and impetus for the development of this plugin.';
+$string['acknowledgments_text'] = 'Special thanks to <strong>Gabriel Olave Henríquez</strong> (<a href="mailto:olave.gabriel@gmail.com">olave.gabriel@gmail.com</a>) for the request and impetus for the development of this plugin.';

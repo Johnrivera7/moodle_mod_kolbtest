@@ -66,4 +66,4 @@ $string['report_full_about'] = 'Acerca del reporte completo';
 $string['report_full_about_desc'] = 'El <strong>Reporte completo</strong> muestra todos los intentos del Test de Kolb en todos los cursos (según sus permisos). Quien tenga acceso puede entrar desde: (1) el enlace de esta página (arriba), si ve la administración, o (2) desde cualquier curso: entrar a una actividad Test de Kolb → pestaña «Ver reporte» → botón «Reporte completo (todos los cursos)». Solo los roles seleccionados abajo podrán abrir el reporte.';
 $string['author_credits'] = 'Autor';
 $string['acknowledgments'] = 'Agradecimientos';
-$string['acknowledgments_text'] = 'Agradecimiento especial a <strong>Gabriel Olave Henríquez</strong> por la solicitud y el impulso para el desarrollo de este plugin.';
+$string['acknowledgments_text'] = 'Agradecimiento especial a <strong>Gabriel Olave Henríquez</strong> (<a href="mailto:olave.gabriel@gmail.com">olave.gabriel@gmail.com</a>) por la solicitud y el impulso para el desarrollo de este plugin.';
